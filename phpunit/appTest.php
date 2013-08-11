@@ -1,6 +1,6 @@
 <?php
     function __autoload($class) {
-        require_once '/class.'.$class.'.php';
+        require_once 'class.'.$class.'.php';
     }
 
     class APPTest extends PHPUnit_Framework_TestCase {
@@ -14,12 +14,20 @@
         public function testAppInit() {
             // Setup app
             try {
-                $app = new app();
+                $this->app = new app();
             } catch (Exception $e) {
                 die($e->getMessage());
             }
 
-            print_r($app);
+            print_r($this->app);
+            $this->assertTrue($this->app);
+        }
+
+        /**
+         * @depends testAppInit
+         */
+        public function testAppConnection() {
+            $this->assertTrue($this->app->db);
         }
     }
 ?>
