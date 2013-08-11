@@ -23,6 +23,14 @@
 
             echo "DB settings:\n";
             print_r($this->app->config);
+
+            if (!defined('PDO::ATTR_DRIVER_NAME')) {
+            echo 'PDO unavailable';
+            }
+            elseif (defined('PDO::ATTR_DRIVER_NAME')) {
+            echo 'PDO available';
+            }
+            
             $this->assertTrue(isset($this->app));
         }
 
