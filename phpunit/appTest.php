@@ -1,5 +1,6 @@
 <?php
     function autoload($class) {
+        echo $class;
         require_once 'class.'.$class.'.php';
     }
 
@@ -20,21 +21,16 @@
                 die($e->getMessage());
             }
 
-            print_r($this->app);
-            $this->assertTrue($this->app);
-
             spl_autoload_unregister('autoload');
+
+            $this->assertTrue($this->app);
         }
 
         /**
          * @depends testAppInit
          */
         public function testAppConnection() {
-            spl_autoload_register('autoload');
-
             $this->assertTrue($this->app->db);
-
-            spl_autoload_unregister('autoload');
         }
     }
 ?>
