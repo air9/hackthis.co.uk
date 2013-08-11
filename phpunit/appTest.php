@@ -1,11 +1,10 @@
 <?php
     function autoload($class) {
-        echo "Loading class: {$class}\n";
         require_once 'class.'.$class.'.php';
     }
 
     class APPTest extends PHPUnit_Framework_TestCase {
-        protected function setUp() {
+        protected function setUpBeforeClass() {
             set_include_path(get_include_path() . PATH_SEPARATOR . '/home/ubuntu/hackthis.co.uk/files/');
 
             spl_autoload_register('autoload');
