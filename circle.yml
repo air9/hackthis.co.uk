@@ -8,4 +8,5 @@ database:
 
 test:
   override:
+    - cp files/ci.config.php files/config.php
     - phpunit phpunit
