@@ -4,6 +4,8 @@
     }
 
     class APPTest extends PHPUnit_Framework_TestCase {
+        protected static $app;
+
         public static function setUpBeforeClass() {
             set_include_path(get_include_path() . PATH_SEPARATOR . '/home/ubuntu/hackthis.co.uk/files/');
 
@@ -11,7 +13,7 @@
 
             // Setup app
             try {
-                $this->app = new app();
+                self::app = new app();
             } catch (Exception $e) {
                 die($e->getMessage());
             }
@@ -20,14 +22,14 @@
         }
 
         public function testAppInit() {
-            $this->assertTrue(isset($this->app));
+            $this->assertTrue(isset(self::app));
         }
 
         /**
          * @depends testAppInit
          */
         public function testAppConnection() {
-            $this->assertTrue(isset($this->app->db));
+            $this->assertTrue(isset(self::app->db));
         }
     }
 ?>
