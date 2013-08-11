@@ -1,6 +1,8 @@
 <?php
     function __autoload($class) {
-        require_once 'class.'.$class.'.php';
+        echo realpath($_SERVER["DOCUMENT_ROOT"] . '/../');
+
+        require_once realpath($_SERVER["DOCUMENT_ROOT"] . '/../') . '/class.'.$class.'.php';
     }
 
     class APPTest extends PHPUnit_Framework_TestCase {
