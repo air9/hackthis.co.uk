@@ -1,5 +1,6 @@
 <?php
     function autoload($class) {
+        echo "Loading class: {$class}\n";
         require_once 'class.'.$class.'.php';
     }
 
@@ -21,7 +22,7 @@
             spl_autoload_unregister('autoload');
 
             echo "DB settings:\n";
-            print_r($this->app->config['db']);
+            print_r($this->app->config);
             $this->assertTrue(isset($this->app));
         }
 
