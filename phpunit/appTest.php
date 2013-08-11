@@ -23,14 +23,14 @@
 
             spl_autoload_unregister('autoload');
 
-            $this->assertTrue($this->app);
+            $this->assertTrue(isset($this->app));
         }
 
         /**
          * @depends testAppInit
          */
         public function testAppConnection() {
-            $this->assertTrue($this->app->db);
+            $this->assertTrue(isset($this->app->db));
         }
     }
 ?>
