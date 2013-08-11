@@ -1,6 +1,6 @@
 <?php
     function autoload($class) {
-        echo $class;
+        echo "Loading class: {$class}\n";
         require_once 'class.'.$class.'.php';
     }
 
