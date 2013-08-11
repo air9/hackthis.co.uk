@@ -4,7 +4,7 @@
     }
 
     class APPTest extends PHPUnit_Framework_TestCase {
-        protected function setUpBeforeClass() {
+        public static function setUpBeforeClass() {
             set_include_path(get_include_path() . PATH_SEPARATOR . '/home/ubuntu/hackthis.co.uk/files/');
 
             spl_autoload_register('autoload');
