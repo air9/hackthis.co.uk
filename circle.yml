@@ -4,7 +4,7 @@ machine:
 
 database:
   override:
-    - mysql -u ubuntu < sql/schema.sql
+    - mysql -u ubuntu < setup.sql
 
 test:
   override:
