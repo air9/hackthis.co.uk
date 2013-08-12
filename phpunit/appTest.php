@@ -20,8 +20,6 @@
             } catch (Exception $e) {
                 die($e->getMessage());
             }
-
-            spl_autoload_unregister('autoload');
         }
 
         public function testAppInit() {
@@ -50,7 +48,6 @@
          * @depends testAppConnection
          */
         public function testAppLogin() {
-            spl_autoload_register('autoload');
 
             $user = 'flabbyrabbit';
             $pass = 'pass';
