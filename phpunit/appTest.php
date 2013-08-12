@@ -34,7 +34,7 @@
             // Check connection
             $connected = false;
             try {
-                $pdo->query('select 1;')
+                $pdo->query('select 1;');
                 $connected = true;
             } catch (PDOException $e) {
                 $connected = false;
