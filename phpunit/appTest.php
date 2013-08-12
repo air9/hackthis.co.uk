@@ -8,7 +8,7 @@
 
         public static function setUpBeforeClass() {
             //Load data
-            exec('mysql -u ubuntu < sql/schema.sql');
+            exec('mysql -u ubuntu < setup.sql');
 
             set_include_path(get_include_path() . PATH_SEPARATOR . '/home/ubuntu/hackthis.co.uk/files/');
 
