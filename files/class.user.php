@@ -279,13 +279,18 @@
                 $_SESSION['uid'] = $this->uid;
 
                 // Basic hijacking prevention
-                $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-                $_SESSION['user_agent_id'] = md5($_SERVER['HTTP_USER_AGENT']);
+                if (isset($_SERVER['REMOTE_ADDR']))
+                    $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+                if (isset($_SERVER['HTTP_USER_AGENT']))
+                    $_SESSION['user_agent_id'] = md5($_SERVER['HTTP_USER_AGENT']);
                 
                 $this->app->stats->users_activity($this, true);
 
                 // Redirect user back to where they came from
-                header("location: " . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+                if (isset($_SERVER['REQUEST_URI']))
+                    header("location: " . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+                else
+                    header("location: /");
             }     
         }
 
