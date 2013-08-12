@@ -9,4 +9,4 @@ database:
 test:
   override:
     - cp files/ci.config.php files/config.php
-    - phpunit -v --stderr phpunit
+    - phpunit -v phpunit
