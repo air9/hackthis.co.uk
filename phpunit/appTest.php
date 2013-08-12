@@ -49,7 +49,7 @@
         public function testAppLogin() {
             $user = 'flabbyrabbit';
             $pass = 'pass';
-            $status = self::$app->login($user, $pass);
+            $status = self::$app->user->login($user, $pass);
             $this->assertTrue($status);
         }
     }
