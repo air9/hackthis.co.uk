@@ -25,7 +25,7 @@
                 } else {        
                     $this->loggedIn = true;
                     $this->uid = $_SESSION['uid'];
-                    $this->get_details();
+                    $this->getDetails();
                 }
             } else {
                 //Check if user is logging in
@@ -47,7 +47,7 @@
             }
         }
 
-        private function get_details() {
+        private function getDetails() {
             $this->app->stats->users_activity($this);
 
             $st = $this->app->db->prepare('SELECT username, score, status, email, (oauth_id IS NOT NULL) as connected,
@@ -287,10 +287,15 @@
                 $this->app->stats->users_activity($this, true);
 
                 // Redirect user back to where they came from
-                if (isset($_SERVER['REQUEST_URI']))
-                    header("location: " . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-                else
-                    header("location: /");
+                if (!headers_sent()) {
+                    if (isset($_SERVER['REQUEST_URI']))
+                        header("location: " . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+                    else
+                        header("location: /");
+                    die();
+                }
+
+                $this->getDetails();
             }     
         }
 
