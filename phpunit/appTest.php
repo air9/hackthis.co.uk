@@ -30,6 +30,27 @@
          */
         public function testAppConnection() {
             $this->assertTrue(isset(self::$app->db));
+
+            // Check connection
+            $connected = false;
+            try {
+                $pdo->query('select 1;')
+                $connected = true;
+            } catch (PDOException $e) {
+                $connected = false;
+            }
+
+            $this->assertTrue($connected);
+        }
+
+        /**
+         * @depends testAppConnection
+         */
+        public function testAppLogin() {
+            $user = 'flabbyrabbit';
+            $pass = 'pass';
+            $status = self::$app->login($user, $pass);
+            $this->assertTrue($status);
         }
     }
 ?>
