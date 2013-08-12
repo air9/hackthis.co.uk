@@ -3,7 +3,7 @@
 
         public static function setUpBeforeClass() {
             exec('mysql -u ubuntu -e "DROP DATABASE IF EXISTS hackthis"');
-            exec('mysql -u ubuntu < schema.sql');
+            exec('mysql -u ubuntu < sql/schema.sql');
         }
 
         public function __construct() {
