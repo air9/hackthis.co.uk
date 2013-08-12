@@ -2,10 +2,6 @@ machine:
     timezone:
         Europe/London
 
-database:
-  override:
-    - mysql -u ubuntu < sql/schema.sql
-
 test:
   override:
     - cp files/ci.config.php files/config.php
