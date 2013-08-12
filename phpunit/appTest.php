@@ -57,7 +57,7 @@
 
             $this->assertEquals(self::$app->user->uid, '2');
 
-            self::$app->get_details();
+            self::$app->user->get_details();
             $this->assertEquals(self::$app->user->username, 'flabbyrabbit');
         }
     }
