@@ -2,7 +2,7 @@
     class DBTest extends PHPUnit_Framework_TestCase {
 
         public static function setUpBeforeClass() {
-            exec('mysql -u ubuntu -e "drop database hackthis"');
+            exec('mysql -u ubuntu -e "DROP DATABASE IF EXISTS hackthis"');
             exec('mysql -u ubuntu < schema.sql');
         }
 
