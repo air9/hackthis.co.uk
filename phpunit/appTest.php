@@ -50,6 +50,8 @@
          * @depends testAppConnection
          */
         public function testAppLogin() {
+            spl_autoload_register('autoload');
+
             $user = 'flabbyrabbit';
             $pass = 'pass';
             $status = self::$app->user->login($user, $pass);
