@@ -7,6 +7,9 @@
         protected static $app;
 
         public static function setUpBeforeClass() {
+            //Load data
+            exec('mysql -u ubuntu < sql/schema.sql');
+
             set_include_path(get_include_path() . PATH_SEPARATOR . '/home/ubuntu/hackthis.co.uk/files/');
 
             spl_autoload_register('autoload');
