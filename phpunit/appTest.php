@@ -52,7 +52,7 @@
             $user = 'flabbyrabbit';
             $pass = 'pass';
             $status = self::$app->user->login($user, $pass);
-            $this->assertTrue($status);
+            $this->assertFalse($status);
 
             $this->assertEquals(self::$app->user->uid, '2');
 
